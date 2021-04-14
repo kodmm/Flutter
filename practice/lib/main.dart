@@ -14,16 +14,16 @@ class MyApp extends StatelessWidget {
         child: Container(
           color: Colors.white,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            // mainAxisAlignment: MainAxisAlignment.spaceAround,
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
+            // mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
               Container( color: Colors.blue, width: 50, height: 50),
               Container( color: Colors.red, width: 50, height: 50),
               Container( color: Colors.green, width: 50, height: 50),
               Container( color: Colors.orange, width: 50, height: 50),
             ],
-          ),
+          )
         ),
       ),
     );
