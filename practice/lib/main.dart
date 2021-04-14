@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Column & Row',
       home: Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,  // center, end
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Container( color: Colors.blue, width: 100, height: 100),
             Container( color: Colors.red, width: 100, height: 100),
@@ -20,5 +20,6 @@ class MyApp extends StatelessWidget {
         ),
       ),
     );
+
   }
 }
