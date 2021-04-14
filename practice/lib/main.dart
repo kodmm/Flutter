@@ -9,19 +9,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Material Design',
-      home: Scaffold(
-        body: Center(
-          child: Container(
-            color: Colors.blue,
-            width: 300.0,
-            height: 300.0,
-            child: Text('word'),
-            // padding: const EdgeInsets.all(50.0),
-            padding: const EdgeInsets.only(top:50.0),
-            // alignment: Alignment.center,
-            alignment: Alignment.bottomRight,
-            transform: Matrix4.rotationZ(0.1)
+      title: 'Column & Row',
+      home: Container(
+        child: Center(
+          child: Row(
+            children: <Widget>[
+              Container(color: Colors.blue, width: 100, height: 100),
+              Container(color: Colors.red[300], width: 100, height: 100),
+            ],
           ),
         ),
       ),
