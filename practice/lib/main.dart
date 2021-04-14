@@ -9,21 +9,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Alignment',
-      home: Center(
-        child: Container(
-          color: Colors.white,
-          child: Row(
-            // mainAxisSize: MainAxisSize.max,
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container( color: Colors.blue, width: 50, height: 50),
-              Container( color: Colors.red, width: 50, height: 50),
-              Container( color: Colors.green, width: 50, height: 50),
-              Container( color: Colors.orange, width: 50, height: 50),
-            ],
-          )
+      title: 'Expanded',
+      home: Container(
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child:Container( color: Colors.blue)
+            ),
+            Expanded(
+              child: Container( color: Colors.red),
+            ),
+            Expanded(
+              child: Container( color: Colors.green),
+            ),
+            Expanded(
+              child: Container( color: Colors.orange),
+            ),
+          ],
         ),
       ),
     );
