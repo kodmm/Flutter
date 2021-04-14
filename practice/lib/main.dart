@@ -14,8 +14,9 @@ class MyApp extends StatelessWidget {
         child: Container(
           color: Colors.white,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             // mainAxisAlignment: MainAxisAlignment.spaceAround,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Container( color: Colors.blue, width: 50, height: 50),
               Container( color: Colors.red, width: 50, height: 50),
