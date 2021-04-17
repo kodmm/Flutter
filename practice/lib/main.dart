@@ -11,20 +11,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Container(
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Expanded(
-              child: Container(color: Colors.blue)
-            ),
-            Expanded(
-              flex: 2,
-              child: Container( color: Colors.red),
-            ),
-            Expanded(
-              child: Container( color: Colors.green),
-            ),
-          ],
-        ),
-      ),
+            Container( color: Colors.red, width: 100, height: 100),
+            Container( color: Colors.blue, width: 100, height: 100),
+          ]
+        )
+      )
     );
   }
 }
