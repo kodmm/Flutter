@@ -49,13 +49,13 @@ class _ChangeFormState extends State<ChangeForm> {
               fontWeight: FontWeight.w500
             ),
           ),
-          RaisedButton(
+          OutlineButton(
             onPressed: _handlePressed,
-            color: Colors.blue,
+            borderSide: BorderSide(color: Colors.blue),
             child: const Text(
               '更新',
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.blue,
                 fontSize: 20.0
               ),
             ),
