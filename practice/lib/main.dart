@@ -12,16 +12,16 @@ class MyApp extends StatelessWidget {
       title: 'Direction',
       home: Container(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          textDirection: TextDirection.rtl,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          verticalDirection: VerticalDirection.up,
           children: [
             Text(
               'Direction',
-              style: TextStyle(color:Colors.blue, fontSize: 30),
+              style: TextStyle(color:Colors.blue,fontSize: 30),
             ),
             Text(
               'Direction',
-              style: TextStyle(color:Colors.red, fontSize: 20)
+              style: TextStyle(color:Colors.red, fontSize: 20),
             ),
           ],
         ),
