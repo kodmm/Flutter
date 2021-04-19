@@ -52,6 +52,9 @@ class _ChangeFormState extends State<ChangeForm> {
           FlatButton(
             onPressed: _handlePressed,
             color: Colors.blue,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0)
+            ),
             child: Text(
               '更新',
               style: TextStyle(
