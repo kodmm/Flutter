@@ -9,24 +9,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Column & Row',
-      home: Center(
-        child: Container(
-          child: Row(
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: <Widget>[
-                Text(
-                  'Baseline',
-                  style: TextStyle(color:Colors.blue,fontSize:50),
-                ),
-                Text(
-                  'Baseline',
-                  style: TextStyle(color:Colors.red,fontSize:25),
-                )
-              ]
-          ),
-
+      title: 'Direction',
+      home: Container(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          textDirection: TextDirection.rtl,
+          children: [
+            Text(
+              'Direction',
+              style: TextStyle(color:Colors.blue,fontSize: 30),
+            ),
+            Text(
+              'Direction',
+              style: TextStyle(color:Colors.red,fontSize: 20)
+            ),
+          ],
         ),
       ),
     );
