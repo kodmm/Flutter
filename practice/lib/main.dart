@@ -49,16 +49,11 @@ class _ChangeFormState extends State<ChangeForm> {
               fontWeight: FontWeight.w500
             ),
           ),
-          FloatingActionButton(
+          FloatingActionButton.extended(
             onPressed: _handlePressed,
             backgroundColor: Colors.blue,
-            child: const Text(
-              '更新',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20.0
-              ),
-            ),
+            icon: Icon(Icons.add),
+            label: const Text("button"),
           )
         ],
       )
