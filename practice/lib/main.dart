@@ -49,16 +49,11 @@ class _ChangeFormState extends State<ChangeForm> {
               fontWeight: FontWeight.w500
             ),
           ),
-          OutlineButton(
+          IconButton(
+            iconSize: 100,
             onPressed: _handlePressed,
-            borderSide: BorderSide(color: Colors.blue),
-            child: const Text(
-              '更新',
-              style: TextStyle(
-                color: Colors.blue,
-                fontSize: 20.0
-              ),
-            ),
+            color: Colors.blue,
+            icon: Icon(Icons.add_circle_outline),
           )
         ],
       )
