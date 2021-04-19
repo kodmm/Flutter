@@ -49,13 +49,10 @@ class _ChangeFormState extends State<ChangeForm> {
               fontWeight: FontWeight.w500
             ),
           ),
-          FlatButton(
+          RaisedButton(
             onPressed: _handlePressed,
             color: Colors.blue,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0)
-            ),
-            child: Text(
+            child: const Text(
               '更新',
               style: TextStyle(
                 color: Colors.white,
