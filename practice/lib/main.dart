@@ -49,11 +49,10 @@ class _ChangeFormState extends State<ChangeForm> {
               fontWeight: FontWeight.w500
             ),
           ),
-          IconButton(
-            iconSize: 100,
+          FloatingActionButton(
             onPressed: _handlePressed,
-            color: Colors.blue,
-            icon: Icon(Icons.add_circle_outline),
+            backgroundColor: Colors.blue,
+            child: Icon(Icons.add)
           )
         ],
       )
