@@ -8,40 +8,25 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("ListView"),
+          title: Text('Stack'),
         ),
-        body: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (BuildContext context, int index) {
-            print(index);
-            if (index >= list.length) {
-              list.addAll(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]);
-            }
-            return _messageItem(list[index]);
-        },
+        body:Stack(
+          children: <Widget>[
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.green
+            ),
+            Container(
+              width: 50,
+              height: 80,
+              color: Colors.orange
+            )
+          ],
         )
-      )
-    );
-  }
-
-  Widget _messageItem(String title) {
-    return Container(
-      width: 100,
-      decoration: new BoxDecoration(
-        border: new Border(right: BorderSide(width: 1.0, color: Colors.grey))
-      ),
-      child:Center(
-        child:Text(
-          title,
-          style: TextStyle(
-            color:Colors.black,
-            fontSize: 20.0
-          ),
-        ),
       )
     );
   }
