@@ -8,22 +8,12 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    const data = [Text("item0"), Text("item1"), Text("item2"), Text("item3"),
+      Text("item4")];
     return MaterialApp(
-      title: 'Direction',
-      home: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          verticalDirection: VerticalDirection.up,
-          children: [
-            Text(
-              'Direction',
-              style: TextStyle(color:Colors.blue,fontSize: 30),
-            ),
-            Text(
-              'Direction',
-              style: TextStyle(color:Colors.red, fontSize: 20),
-            ),
-          ],
+      home: Scaffold(
+        body: ListView(
+          children: data
         ),
       ),
     );
