@@ -11,17 +11,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Direction',
       home: Container(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           textDirection: TextDirection.rtl,
           children: [
             Text(
               'Direction',
-              style: TextStyle(color:Colors.blue,fontSize: 30),
+              style: TextStyle(color:Colors.blue, fontSize: 30),
             ),
             Text(
               'Direction',
-              style: TextStyle(color:Colors.red,fontSize: 20)
+              style: TextStyle(color:Colors.red, fontSize: 20)
             ),
           ],
         ),
