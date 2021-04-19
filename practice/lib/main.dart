@@ -13,17 +13,18 @@ class MyApp extends StatelessWidget {
       home: Center(
         child: Container(
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                'Baseline',
-                style: TextStyle(color:Colors.blue,fontSize:50),
-              ),
-              Text(
-                'Baseline',
-                style: TextStyle(color:Colors.red,fontSize:25)
-              ),
-            ],
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              textBaseline: TextBaseline.alphabetic,
+              children: <Widget>[
+                Text(
+                  'Baseline',
+                  style: TextStyle(color:Colors.blue,fontSize:50),
+                ),
+                Text(
+                  'Baseline',
+                  style: TextStyle(color:Colors.red,fontSize:25),
+                )
+              ]
           ),
 
         ),
