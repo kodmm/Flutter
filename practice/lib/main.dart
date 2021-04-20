@@ -49,12 +49,23 @@ class _ChangeFormState extends State<ChangeForm> {
               fontWeight: FontWeight.w500
             ),
           ),
-          FloatingActionButton.extended(
-            onPressed: _handlePressed,
-            backgroundColor: Colors.blue,
-            icon: Icon(Icons.add),
-            label: const Text("button"),
-          )
+          PopupMenuButton<String>(
+            // onSelected: _handleChange,
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              const PopupMenuItem<String>(
+                value: '1',
+                child: Text('選択1'),
+              ),
+              const PopupMenuItem<String>(
+                value: '2',
+                child: Text('選択2'),
+              ),
+              const PopupMenuItem<String>(
+                value: '3',
+                child: Text('選択3')
+              ),
+            ],
+          ),
         ],
       )
     );
