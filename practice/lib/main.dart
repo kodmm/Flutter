@@ -28,11 +28,14 @@ class ChangeForm extends StatefulWidget {
 }
 
 class _ChangeFormState extends State<ChangeForm> {
-  int _count = 0;
+  String _defaultValue = 'りんご';
+  List<String> _list = <String>['りんご', 'オレンジ', 'みかん', 'ぶどう'];
+  String _text ='';
 
-  void _handlePressed() {
+  void _handleChange(String newValue) {
     setState((){
-      _count++;
+      _text = newValue;
+      _defaultValue = newValue;
     });
   }
 
@@ -42,29 +45,22 @@ class _ChangeFormState extends State<ChangeForm> {
       child: Column(
         children: <Widget>[
           Text(
-            "$_count",
+            "$_text",
             style: TextStyle(
               color: Colors.blueAccent,
               fontSize: 30.0,
               fontWeight: FontWeight.w500
             ),
           ),
-          PopupMenuButton<String>(
-            // onSelected: _handleChange,
-            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              const PopupMenuItem<String>(
-                value: '1',
-                child: Text('選択1'),
-              ),
-              const PopupMenuItem<String>(
-                value: '2',
-                child: Text('選択2'),
-              ),
-              const PopupMenuItem<String>(
-                value: '3',
-                child: Text('選択3')
-              ),
-            ],
+          DropdownButton<String>(
+            value: _defaultValue,
+            onChanged: _handleChange,
+            items: _list.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
           ),
         ],
       )
