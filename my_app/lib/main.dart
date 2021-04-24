@@ -18,46 +18,46 @@ class MyTodoApp extends StatelessWidget {
   }
 }
 
-class TodoListPage extends StatelessWidget {
+class TodoListPage extends StatefulWidget {
+  @override
+  _TodoListPageState createState() => _TodoListPageState();
+}
+class _TodoListPageState extends State<TodoListPage> {
+  // Todoリストのデータ
+  List<String> todoList = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('リスト一覧'),
       ),
-      // ListViewを使用しリスト一覧を表示
-      body: ListView(
-        children: <Widget>[
-          // CardとListTitleを使用し簡単に整ったUIを作成
-          Card(
+      body: ListView.builder(
+        itemCount: todoList.length,
+        itemBuilder: (context, index) {
+          return Card(
             child: ListTile(
-              title: Text('YOASOBI'),
+              title: Text(todoList[index]),
             ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text('SMAP'),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text('ARASHI'),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text('V6')
-            ),
-          ),
-        ],
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (context){
+        onPressed: () async {
+          // "push"で新規画面に遷移
+          // リスト追加画面から渡される値を受け取る
+          final newListText = await Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) {
+              // 遷移先の画面としてリスト追加画面を指定
               return TodoAddPage();
             }),
           );
+          if (newListText != null) {
+            // キャンセルした場合は newListText が nullとなるので注意
+            setState(() {
+              todoList.add(newListText);
+            });
+          }
         },
         child: Icon(Icons.add),
       ),
@@ -94,7 +94,15 @@ class _TodoAddPageState extends State<TodoAddPage> {
               },
             ),
               const SizedBox(height: 8),
-              Container(),
+              Container(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(_text);
+                  },
+                  child: Text('リスト追加', style: TextStyle(color: Colors.white)),
+                )
+              ),
               const SizedBox(height: 8),
               Container(),
           ],
