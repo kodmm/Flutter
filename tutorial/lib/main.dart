@@ -1,9 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-Future<void> main() async {
-  // Firebase初期化
 
+Future<void> main() async {
   await Firebase.initializeApp();
   runApp(MyApp());
 }
@@ -12,136 +11,93 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyAuthPage(),
+      home: MyFirestorePage(),
     );
   }
 }
 
-class MyAuthPage extends StatefulWidget {
+class MyFirestorePage extends StatefulWidget {
   @override
-  _MyAuthPageState createState() => _MyAuthPageState();
+  _MyFirestorePageState createState() => _MyFirestorePageState();
 }
 
-class _MyAuthPageState extends State<MyAuthPage> {
+class _MyFirestorePageState extends State<MyFirestorePage> {
+  List<DocumentSnapshot> documentList = [];
 
-  // 登録
-  String newUserEmail = '';
-  String newUserPassword = '';
-
-  // ログイン
-  String loginUserEmail = '';
-  String loginUserPassword = '';
-
-  // 登録・ログインに関する情報を表示
-  String infoText = '';
-
+  String orderDocumentInfo = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          padding: EdgeInsets.all(32),
-          child: Column(
-            children: <Widget>[
-              TextFormField(
-                // テキスト入力のラベルを設定
-                decoration: InputDecoration(labelText: "メールアドレス"),
-                onChanged: (String value) {
-                  setState((){
-                    newUserEmail = value;
-                  });
-                },
-              ),
-              const SizedBox(height: 8),
-              TextFormField(
-                decoration: InputDecoration(labelText: "パスワード(6文字以上)"),
-                // パスワードが見えないようにする
-                obscureText: true,
-                onChanged: (String value) {
-                  setState(() {
-                    newUserPassword = value;
-                  });
-                },
-              ),
-              const SizedBox(height: 8),
-              ElevatedButton(
-                  onPressed: () async {
-                    try {
-                      // mail / password でユーザ登録
-                      final FirebaseAuth auth = FirebaseAuth.instance;
-                      final UserCredential result =
+        child: Column(
+          children: <Widget>[
+            ElevatedButton(
+              child: Text('コレクション+ドキュメント作成'),
+              onPressed: () async {
+                await FirebaseFirestore.instance
+                    .collection('users')
+                    .doc('id_ghi')
+                    .set({'name': '鈴木', 'age': 40});
+              },
+            ),
+            const SizedBox(height: 8),
+            ElevatedButton(
+              child: Text('サブコレクション+ ドキュメント作成'),
+              onPressed: () async {
+                await FirebaseFirestore.instance
+                    .collection('users')
+                    .doc('id_ghi')
+                    .collection('orders')
+                    .doc('id_789')
+                    .set({'price': 600, 'date': '9/13'});
+              },
+            ),
+            const SizedBox(height: 8),
+            ElevatedButton(
+              child: Text('ドキュメント一覧取得'),
+              onPressed: () async {
+                final snapshot =
+                    await FirebaseFirestore.instance.collection('users').get();
+                print(snapshot.docs);
+                setState(() {
+                  documentList = snapshot.docs;
+                });
+              },
+            ),
+            Column(
+              children: documentList.map((document) {
+                return ListTile(
+                  title: Text('${document['name']}さん'),
+                  subtitle: Text('${document['age']}歳'),
+                );
+              }).toList(),
+            ),
+            ElevatedButton(
+              child: Text('ドキュメントを指定して取得'),
+              onPressed: () async {
+                final document = await FirebaseFirestore.instance
+                    .collection('users')
+                    .doc('id_abc')
+                    .collection('orders')
+                    .doc('id_123')
+                    .get();
 
-                      await auth.createUserWithEmailAndPassword(
-                          email: newUserEmail,
-                          password: newUserPassword
-                      );
-
-
-                      // 登録したUser info
-                      final User user = result.user;
-                      setState(() {
-                        infoText = "登録OK:${user.email}";
-                      });
-                    } catch(e) {
-                      setState(() {
-                        infoText = "登録NG:${e.toString()}";
-                      });
-                    }
-                  },
-                  child: Text("ユーザ登録")
-              ),
-              const SizedBox(height: 32),
-              TextFormField(
-                decoration: InputDecoration(labelText: "メールアドレス"),
-                onChanged: (String value) {
-                  setState((){
-                    loginUserEmail = value;
-                  });
-                },
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: "パスワード"),
-                obscureText: true,
-                onChanged: (String value) {
-                  setState((){
-                    loginUserPassword = value;
-                  });
-                },
-              ),
-              const SizedBox(height: 8),
-              ElevatedButton(
-                onPressed: () async {
-                  try {
-                    final FirebaseAuth auth = FirebaseAuth.instance;
-                    final UserCredential result =
-                        await auth.signInWithEmailAndPassword(
-                          email: loginUserEmail,
-                          password: loginUserPassword,
-                        );
-                    final User user = result.user;
-                    setState(() {
-                      infoText = "ログインOK: ${user.email}";
-                    });
-                  } catch(e) {
-                    setState((){
-                      infoText = "ログインNG:${e.toString()}";
-                    });
-                  }
-                },
-                child: Text("ログイン"),
-              ),
-              const SizedBox(height: 8),
-              Text(infoText),
-            ],
-          ),
-
+                setState((){
+                  orderDocumentInfo =
+                      '${document['date']} ${document['price']}円';
+                });
+              },
+            ),
+            ListTile(title: Text(orderDocumentInfo)),
+          ],
         ),
       ),
     );
   }
 }
-

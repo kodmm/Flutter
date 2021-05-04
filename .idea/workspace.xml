@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4101a56b-0d31-4d9a-937f-3fed4ac3e3f5" name="Default Changelist" comment="" />
+    <list default="true" id="4101a56b-0d31-4d9a-937f-3fed4ac3e3f5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice/web/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/ios/Flutter/Debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/ios/Flutter/Release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/web/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1r9bACAl8rrlxmL7H1o93yNNYGv" />
   <component name="ProjectViewState">
@@ -35,6 +47,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="0" y="28" width="1440" height="804" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619406090928">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="0" y="28" width="1440" height="804" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1619406090928" />
     <state x="515" y="200" key="AndroidProcessChooserDialog" timestamp="1618394559843">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
