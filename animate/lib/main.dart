@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData( primarySwatch: Colors.blue),
+      theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
       home: MyWidget(),
     );
@@ -15,34 +15,74 @@ class MyApp extends StatelessWidget {
 }
 
 class MyWidget extends StatefulWidget {
-  @override
   _MyWidgetState createState() => _MyWidgetState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
-  double width = 50;
+class _MyWidgetState extends State<MyWidget>
+  with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+  late Animation<double> animation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    );
+
+    animation = Tween<double>(
+      begin: 1.0,
+      end: 2.0,
+    ).animate(controller);
+  }
+
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            width = 200;
-          });
-        },
-        child: Icon(Icons.play_arrow),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              onPressed: () {
+                // アニメーションの再生
+                controller.forward();
+              },
+              icon: Icon(Icons.play_arrow),
+            ),
+            IconButton(
+              onPressed: () {
+                controller.stop();
+              },
+              icon: Icon(Icons.stop),
+            ),
+            IconButton(
+              onPressed: () {
+                controller.repeat();
+              },
+              icon: Icon(Icons.loop),
+            ),
+          ],
+        ),
       ),
-      body: Center(
-        child: AnimatedContainer(
-          // 1.アニメーションの動作時間,
-          duration: Duration(seconds: 2),
-          // 変化させたいプロパティ,
-          width: width,
-          height: 100,
+    body: Center(
+      child: ScaleTransition(
+        scale: animation,
+        child: Container(
+          width: 50,
+          height: 50,
           color: Colors.blue,
         ),
       ),
+    ),
     );
   }
+
 }
