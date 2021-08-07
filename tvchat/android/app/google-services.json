@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "20783472070",
+    "project_id": "tvchat-3e8f4",
+    "storage_bucket": "tvchat-3e8f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20783472070:android:4b58fa4eef0107939626c7",
+        "android_client_info": {
+          "package_name": "com.example.tvchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "20783472070-ihopimaakjkug37tm3lnu8s4jrbsem1q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tvchat",
+            "certificate_hash": "114a9f87be3f303880015099733416275dbbae29"
+          }
+        },
+        {
+          "client_id": "20783472070-ecajfg4riotsrdrt9n4sql86pr4gr76d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoVRqjo7IMkuWwHn8NB91Cj8oYvR-zUOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "20783472070-ecajfg4riotsrdrt9n4sql86pr4gr76d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
