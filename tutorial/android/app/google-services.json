@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "486749811634",
+    "project_id": "instagram-tutorial-45992",
+    "storage_bucket": "instagram-tutorial-45992.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486749811634:android:88a248874f565baa2b6aab",
+        "android_client_info": {
+          "package_name": "com.example.tutorial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "486749811634-8uden7ivuoob3khscheru1h6h72sfn10.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2wgD78dOKdvV_A5GmU-wiET6PnOtxCxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "486749811634-8uden7ivuoob3khscheru1h6h72sfn10.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "486749811634-qkomo36pa7sg7nuebbhcei8m48kge7sk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tutorial"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
