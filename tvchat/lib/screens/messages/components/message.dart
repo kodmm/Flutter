@@ -16,13 +16,13 @@ class Message extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget messageContain(ChatMessage message) {
       switch (message.messageType) {
-        case ChatMessageType.text:
+        case MessageType.text:
           return TextMessage(message: message);
 
-        case ChatMessageType.audio:
+        case MessageType.audio:
           return AudioMessage(message: message);
 
-        case ChatMessageType.video:
+        case MessageType.video:
           return VideoMessage();
 
         default:
@@ -32,9 +32,9 @@ class Message extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
       child: Row(
-          mainAxisAlignment: message.isSender ? MainAxisAlignment.end : MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            if (!message.isSender) ...[
+            ...[
               ClipOval(
                 child: Container(
                   color: Colors.greenAccent,
@@ -42,7 +42,7 @@ class Message extends StatelessWidget {
                   height: 24,
                   child: Center(
                     child: Text(
-                      "木村拓哉".substring(0,1),
+                      message.sendBy.substring(0,1),
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
                   ),
@@ -51,7 +51,7 @@ class Message extends StatelessWidget {
               SizedBox(width: 20.0 / 2),
             ],
             messageContain(message),
-            if (message.isSender) MessageStatusDot(status: message.messageStatus)
+            MessageStatusDot(status: message.messageStatus)
           ]
       ),
     );

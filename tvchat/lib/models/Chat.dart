@@ -1,9 +1,17 @@
+
 class Chat {
-  final String name, lastMessage;
+  final String name, lastMessage, lastMessageSendBy, onAirProgram;
+  final String users;
+  final String lastMessageSendTs;
 
   Chat({
     this.name = '',
     this.lastMessage = '',
+    this.lastMessageSendBy = '',
+    this.lastMessageSendTs = '',
+    this.onAirProgram = '',
+    this.users = '',
+
   });
 }
 

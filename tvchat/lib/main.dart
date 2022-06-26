@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-
-import 'screens/chats/chats_screen.dart';
+import 'package:tvchat/services/auth.dart';
 
 void main() {
   runApp(FlutterFireInit());
@@ -156,23 +154,6 @@ class _Header extends StatelessWidget {
 }
 
 class SignInButton extends StatelessWidget {
-  // GoogleSignInAccount
-  Future<GoogleSignInAccount?> _handleGoogleSignIn() async {
-    GoogleSignIn _googleSignIn = GoogleSignIn(
-      scopes: [
-        'email',
-        'https://www.googleapis.com/auth/contacts.readonly',
-      ],
-    );
-    try {
-      await _googleSignIn.signIn().then((result){
-        return result;
-      });
-    } catch (error) {
-      print(error);
-    }
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -182,15 +163,7 @@ class SignInButton extends StatelessWidget {
         children: [
           ElevatedButton.icon(
             onPressed: (){
-              _handleGoogleSignIn().then((result){
-                print(result);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) {
-                    return ChatsScreen();
-                  }),
-                );
-              });
+              AuthMethods().signInWithGoogle(context);
             },
             icon: Icon(FontAwesomeIcons.google),
             label: Text("Sign in with Google"),
@@ -229,15 +202,6 @@ class _FlutterFireInitState extends State<FlutterFireInit> {
         // return Loading();
         return Container(color: Colors.blue, width: 300.0, height: 300.0);
       },
-    );
-  }
-}
-
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context){
-    return Center(
-      child: Text("Success Login")
     );
   }
 }

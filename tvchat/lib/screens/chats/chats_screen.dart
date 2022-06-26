@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tvchat/services/auth.dart';
 
 import 'components/body.dart';
 
@@ -15,7 +16,9 @@ class _ChatsScreenState extends State<ChatsScreen> {
       appBar: buildAppBar(),
       body: Body(),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: () {
+          AuthMethods().signOut(context);
+        },
         backgroundColor: Color(0xFF00BF6D),
         child: Icon(Icons.tv_outlined, color: Colors.white,),
       ),

@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
 
+
 import 'components/body.dart';
 
-class MessagesScreen extends StatelessWidget {
+class MessagesScreen extends StatefulWidget {
+  MessagesScreen(
+      this.broadCastingOffice,
+      this.onAirProgram,
+      );
+  final String broadCastingOffice, onAirProgram;
+  @override
+  _MessagesScreenState createState() => _MessagesScreenState();
+}
+
+class _MessagesScreenState extends State<MessagesScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
-      body: Body()
+      appBar: buildAppBar(widget.broadCastingOffice, widget.onAirProgram),
+      body: Body(widget.broadCastingOffice)
     );
   }
 }
 
-AppBar buildAppBar() {
+AppBar buildAppBar(String broadCastingOffice, onAirProgram) {
   return AppBar(
       title: Row(
         children: [
@@ -23,7 +35,7 @@ AppBar buildAppBar() {
               height: 48,
               child: Center(
                 child: Text(
-                  "SMAP".substring(0, 1),
+                  broadCastingOffice.substring(0, 1),
                   style: TextStyle(color: Colors.white, fontSize: 24),
                 ),
               ),
@@ -34,11 +46,11 @@ AppBar buildAppBar() {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "SMAP",
+                  broadCastingOffice,
                   style: TextStyle(fontSize: 16),
                 ),
                 Text(
-                  "SMAP X SMAP",
+                  onAirProgram,
                   style: TextStyle(fontSize: 12),
                 )
               ]
